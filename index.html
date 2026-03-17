@@ -3,23 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>아롱이 추억 페이지</title>
+  <title>아롱이</title>
   <style>
     :root {
-      --bg-1: #090b16;
-      --bg-2: #131b35;
-      --card: rgba(255, 255, 255, 0.1);
-      --card-strong: rgba(255, 255, 255, 0.14);
-      --line: rgba(255, 255, 255, 0.18);
-      --text: #f7f8ff;
-      --muted: #c8d0f7;
-      --accent: #ffd98e;
-      --accent-soft: rgba(255, 217, 142, 0.22);
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-      --radius-xl: 28px;
-      --radius-lg: 22px;
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --surface-2: #f1eee8;
+      --line: #e5e0d7;
+      --text: #23211d;
+      --muted: #6f6a61;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius-lg: 24px;
       --radius-md: 18px;
-      --max: 1180px;
+      --max: 1160px;
     }
 
     * { box-sizing: border-box; }
@@ -28,124 +24,48 @@
       margin: 0;
       font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 217, 142, 0.12), transparent 22%),
-        radial-gradient(circle at 85% 18%, rgba(146, 180, 255, 0.14), transparent 25%),
-        linear-gradient(180deg, var(--bg-2), var(--bg-1));
-      min-height: 100vh;
-      overflow-x: hidden;
+      background: var(--bg);
+      line-height: 1.65;
     }
 
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    body::before {
-      background-image:
-        radial-gradient(2px 2px at 12% 20%, rgba(255,255,255,.8), transparent 60%),
-        radial-gradient(2px 2px at 75% 15%, rgba(255,255,255,.9), transparent 60%),
-        radial-gradient(1.5px 1.5px at 28% 74%, rgba(255,255,255,.7), transparent 60%),
-        radial-gradient(2px 2px at 83% 58%, rgba(255,255,255,.8), transparent 60%),
-        radial-gradient(1.5px 1.5px at 62% 42%, rgba(255,255,255,.6), transparent 60%),
-        radial-gradient(2px 2px at 44% 10%, rgba(255,255,255,.7), transparent 60%),
-        radial-gradient(1.5px 1.5px at 11% 88%, rgba(255,255,255,.7), transparent 60%),
-        radial-gradient(2px 2px at 57% 86%, rgba(255,255,255,.8), transparent 60%),
-        radial-gradient(1.5px 1.5px at 93% 78%, rgba(255,255,255,.9), transparent 60%);
-      opacity: .7;
-      animation: twinkle 7s ease-in-out infinite alternate;
-    }
-
-    body::after {
-      background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.15) 75%, rgba(0,0,0,.35) 100%);
-    }
-
-    @keyframes twinkle {
-      0% { opacity: .42; transform: translateY(0px); }
-      100% { opacity: .95; transform: translateY(-4px); }
+    img, video {
+      display: block;
+      max-width: 100%;
     }
 
     .container {
-      width: min(calc(100% - 32px), var(--max));
+      width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
     }
 
     .hero {
-      min-height: 88vh;
-      display: grid;
-      place-items: center;
-      padding: 48px 0 24px;
+      padding: 72px 0 36px;
     }
 
-    .hero-card {
-      width: 100%;
-      max-width: 920px;
-      text-align: center;
-      padding: 40px 28px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.07));
+    .hero-inner {
+      background: var(--surface);
       border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 56px 32px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      text-align: center;
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      margin: 0 0 18px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(255, 217, 142, 0.28);
-      color: #ffe6b3;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .eyebrow::before { content: "✦"; }
 
     h1 {
       margin: 0;
-      font-size: clamp(38px, 6vw, 72px);
-      line-height: 1.08;
+      font-size: clamp(34px, 5vw, 56px);
       letter-spacing: -0.03em;
+      font-weight: 700;
     }
 
-    .subtitle {
-      margin: 18px auto 0;
-      max-width: 760px;
+    .hero-subtitle {
+      margin: 14px auto 0;
       color: var(--muted);
-      font-size: clamp(17px, 2.5vw, 22px);
-      line-height: 1.75;
-      word-break: keep-all;
-    }
-
-    .hero-meta {
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    .chip {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.08);
-      color: #edf1ff;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .hero-actions {
-      margin-top: 30px;
+      margin-top: 28px;
       display: flex;
       gap: 12px;
       justify-content: center;
@@ -156,84 +76,53 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      color: #11162a;
-      background: linear-gradient(180deg, #ffe7ae, #ffd98e);
-      padding: 14px 20px;
+      min-width: 120px;
+      padding: 13px 18px;
       border-radius: 999px;
-      font-weight: 800;
-      box-shadow: 0 10px 24px rgba(255, 217, 142, 0.25);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .btn.secondary {
-      color: var(--text);
-      background: rgba(255,255,255,.08);
       border: 1px solid var(--line);
-      box-shadow: none;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background .2s ease, transform .2s ease;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover {
+      background: var(--surface-2);
+      transform: translateY(-1px);
+    }
+
+    main {
+      padding-bottom: 56px;
+    }
 
     section {
-      padding: 28px 0;
+      margin-top: 20px;
     }
 
     .section-card {
-      border-radius: var(--radius-xl);
+      background: var(--surface);
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.06));
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      border-radius: 32px;
       box-shadow: var(--shadow);
       padding: 28px;
     }
 
     .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 16px;
       margin-bottom: 20px;
-      flex-wrap: wrap;
     }
 
     .section-head h2 {
       margin: 0;
-      font-size: clamp(24px, 4vw, 34px);
+      font-size: 26px;
       letter-spacing: -0.02em;
+      font-weight: 700;
     }
 
     .section-head p {
       margin: 8px 0 0;
       color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .info-box {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      padding: 18px;
-    }
-
-    .info-box strong {
-      display: block;
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .info-box p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-      word-break: keep-all;
+      font-size: 15px;
     }
 
     .video-grid {
@@ -242,70 +131,36 @@
       gap: 18px;
     }
 
-    .video-card, .photo-card {
-      position: relative;
-      border-radius: var(--radius-lg);
+    .video-card,
+    .photo-card {
       overflow: hidden;
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      box-shadow: 0 12px 24px rgba(0,0,0,.18);
-    }
-
-    .video-card video,
-    .photo-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background: rgba(255,255,255,.04);
     }
 
     .video-card video {
+      width: 100%;
       aspect-ratio: 16 / 9;
-    }
-
-    .photo-card {
-      cursor: pointer;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-
-    .photo-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 30px rgba(0,0,0,.24);
-      border-color: rgba(255,255,255,.28);
-    }
-
-    .caption {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: linear-gradient(180deg, rgba(7,10,22,0.1), rgba(7,10,22,0.72));
-      color: white;
-      font-size: 14px;
-      line-height: 1.5;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .caption strong {
-      display: block;
-      margin-bottom: 4px;
-      font-size: 15px;
+      object-fit: cover;
+      background: #ddd7ce;
     }
 
     .gallery {
-      columns: 4 240px;
+      columns: 4 220px;
       column-gap: 16px;
     }
 
     .gallery .photo-card {
-      width: 100%;
       margin: 0 0 16px;
       break-inside: avoid;
-      display: block;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .gallery .photo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
     }
 
     .gallery .photo-card img {
@@ -313,24 +168,10 @@
       height: auto;
     }
 
-    .letter {
-      text-align: center;
-      padding: 14px 8px 8px;
-    }
-
-    .letter p {
-      margin: 12px auto 0;
-      max-width: 760px;
-      color: var(--muted);
-      line-height: 2;
-      font-size: 17px;
-      word-break: keep-all;
-    }
-
     footer {
-      padding: 26px 0 42px;
+      padding: 10px 0 36px;
       text-align: center;
-      color: rgba(247,248,255,.72);
+      color: var(--muted);
       font-size: 14px;
     }
 
@@ -340,134 +181,104 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      background: rgba(0, 0, 0, 0.82);
-      z-index: 20;
+      padding: 20px;
+      background: rgba(26, 24, 20, 0.88);
+      z-index: 50;
     }
 
-    .lightbox.open { display: flex; }
+    .lightbox.open {
+      display: flex;
+    }
 
     .lightbox-inner {
       position: relative;
-      width: min(96vw, 1100px);
+      width: min(96vw, 1200px);
       max-height: 92vh;
+      background: #111;
       border-radius: 24px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.15);
-      background: #070914;
-      box-shadow: 0 24px 60px rgba(0,0,0,.45);
     }
 
     .lightbox-media {
       width: 100%;
-      height: 100%;
       max-height: 92vh;
       object-fit: contain;
-      display: block;
-      background: #05070f;
+      background: #111;
     }
 
     .close-btn {
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border: 0;
       border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
       font-size: 24px;
       cursor: pointer;
-      color: white;
-      background: rgba(255,255,255,.16);
-      backdrop-filter: blur(10px);
-    }
-
-    .helper-note {
-      margin-top: 14px;
-      font-size: 14px;
-      color: rgba(247,248,255,.7);
+      z-index: 2;
     }
 
     @media (max-width: 900px) {
-      .info-grid,
+      .container {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .hero-inner,
+      .section-card {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
       .video-grid {
         grid-template-columns: 1fr;
       }
-      .hero-card,
-      .section-card {
-        padding: 22px;
+
+      .gallery {
+        columns: 2 180px;
       }
-      .gallery { columns: 2 180px; }
     }
 
     @media (max-width: 560px) {
-      .container { width: min(calc(100% - 20px), var(--max)); }
-      .gallery { columns: 1; }
-      .subtitle { font-size: 16px; }
-      .letter p { font-size: 15px; }
+      .gallery {
+        columns: 1;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <div class="hero-card">
-        <p class="eyebrow">Memorial Page</p>
-        <h1 id="heroTitle">강아지별에서 반짝이는 우리 아롱이</h1>
-        <p class="subtitle" id="heroSubtitle">
-          함께 웃고, 함께 걷고, 함께 머물렀던 시간을 천천히 다시 꺼내볼 수 있도록 만든 작은 추억 페이지입니다.
-          멀리 있는 것 같아도, 사랑했던 순간들은 여전히 여기 남아 있습니다.
-        </p>
-        <div class="hero-meta">
-          <span class="chip" id="photoCountChip">사진 0장</span>
-          <span class="chip" id="videoCountChip">영상 0개</span>
-          <span class="chip">언제든 다시 열어볼 수 있는 추억</span>
-        </div>
+      <div class="hero-inner">
+        <h1 id="heroTitle">아롱이</h1>
+        <p class="hero-subtitle" id="heroSubtitle">달나라로 간 아롱이와의 추억!!!</p>
         <div class="hero-actions">
-          <a class="btn" href="#gallerySection">사진 보러 가기</a>
-          <a class="btn secondary" href="#letterSection">마지막 인사 보기</a>
+          <a class="btn" href="#videoSection">영상</a>
+          <a class="btn" href="#gallerySection">사진</a>
         </div>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section>
-      <div class="section-card">
-        <div class="section-head">
-          <div>
-            <h2>아롱이를 기억하는 방식</h2>
-            <p>
-              이 페이지는 사진과 영상을 한곳에 모아, 보고 싶을 때마다 조용히 다시 만날 수 있도록 구성했습니다.
-              아래 문구는 코드 맨 위 설정만 바꾸면 바로 수정할 수 있습니다.
-            </p>
-          </div>
-        </div>
-        <div class="info-grid">
-          <article class="info-box">
-            <strong>별빛 같은 순간</strong>
-            <p>아롱이가 웃던 표정, 바라보던 눈빛, 함께 머물렀던 장면들을 순서와 상관없이 감정 중심으로 담았습니다.</p>
-          </article>
-          <article class="info-box">
-            <strong>영상까지 함께</strong>
-            <p>사진만으로 남기기 어려운 움직임과 분위기를 위해 영상도 바로 재생할 수 있게 넣었습니다.</p>
-          </article>
-          <article class="info-box">
-            <strong>로컬 폴더용 구성</strong>
-            <p>이 HTML 파일을 사진/영상이 있는 폴더에 같이 두면 바로 열 수 있게 상대 경로 기준으로 만들어졌습니다.</p>
-          </article>
-        </div>
-        <p class="helper-note">팁: 파일이 열리지 않으면 이 HTML 파일을 사진/영상 파일과 같은 폴더에 넣어주세요.</p>
-      </div>
-    </section>
-
     <section id="videoSection">
       <div class="section-card">
         <div class="section-head">
-          <div>
-            <h2>움직이는 추억</h2>
-            <p>짧은 움직임과 소리까지 남아 있는 순간들입니다.</p>
-          </div>
+          <h2>영상</h2>
         </div>
         <div class="video-grid" id="videoGrid"></div>
       </div>
@@ -476,33 +287,15 @@
     <section id="gallerySection">
       <div class="section-card">
         <div class="section-head">
-          <div>
-            <h2>함께한 시간들</h2>
-            <p>사진을 누르면 크게 볼 수 있습니다.</p>
-          </div>
+          <h2>사진</h2>
         </div>
         <div class="gallery" id="gallery"></div>
-      </div>
-    </section>
-
-    <section id="letterSection">
-      <div class="section-card letter">
-        <div class="section-head" style="justify-content:center; margin-bottom: 6px;">
-          <div>
-            <h2>아롱이에게</h2>
-          </div>
-        </div>
-        <p id="farewellText">
-          우리 곁에 머물러 준 모든 시간이 참 고맙고 따뜻했어.<br />
-          이제는 강아지별에서 마음껏 뛰어놀며 편안하길 바라.<br />
-          보고 싶은 마음은 사라지지 않겠지만, 사랑했던 기억도 함께 오래 남아 있을 거야.
-        </p>
       </div>
     </section>
   </main>
 
   <footer>
-    아롱이를 기억하는 추억 페이지 · 로컬 폴더에서 바로 열 수 있도록 제작됨
+    아롱이 사진 기록
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
@@ -516,9 +309,8 @@
     const memorial = {
       name: "아롱이",
       assetBasePath: "./",
-      title: "강아지별에서 반짝이는 우리 아롱이",
-      subtitle: "함께 웃고, 함께 걷고, 함께 머물렀던 시간을 천천히 다시 꺼내볼 수 있도록 만든 작은 추억 페이지입니다. 멀리 있는 것 같아도, 사랑했던 순간들은 여전히 여기 남아 있습니다.",
-      farewell: "우리 곁에 머물러 준 모든 시간이 참 고맙고 따뜻했어.\n이제는 강아지별에서 마음껏 뛰어놀며 편안하길 바라.\n보고 싶은 마음은 사라지지 않겠지만, 사랑했던 기억도 함께 오래 남아 있을 거야."
+      title: "아롱이",
+      subtitle: "사진과 영상을 한곳에 모아본 페이지입니다."
     };
 
     const videos = [
@@ -557,9 +349,6 @@
 
     const titleEl = document.getElementById("heroTitle");
     const subtitleEl = document.getElementById("heroSubtitle");
-    const farewellEl = document.getElementById("farewellText");
-    const photoCountChip = document.getElementById("photoCountChip");
-    const videoCountChip = document.getElementById("videoCountChip");
     const videoGrid = document.getElementById("videoGrid");
     const gallery = document.getElementById("gallery");
     const lightbox = document.getElementById("lightbox");
@@ -568,22 +357,12 @@
 
     titleEl.textContent = memorial.title;
     subtitleEl.textContent = memorial.subtitle;
-    farewellEl.innerHTML = memorial.farewell.replace(/\n/g, "<br />");
-    photoCountChip.textContent = `사진 ${photos.length}장`;
-    videoCountChip.textContent = `영상 ${videos.length}개`;
 
     function assetUrl(fileName) {
       return encodeURI(`${memorial.assetBasePath}${fileName}`);
     }
 
-    function createCaption(index, kind) {
-      if (kind === "video") {
-        return `${memorial.name}의 움직이는 순간 ${index + 1}`;
-      }
-      return `${memorial.name}의 추억 사진 ${index + 1}`;
-    }
-
-    videos.forEach((file, index) => {
+    videos.forEach((file) => {
       const card = document.createElement("article");
       card.className = "video-card";
 
@@ -594,11 +373,7 @@
       video.playsInline = true;
       video.onerror = () => card.remove();
 
-      const caption = document.createElement("div");
-      caption.className = "caption";
-      caption.innerHTML = `<strong>${createCaption(index, "video")}</strong><span>${file}</span>`;
-
-      card.append(video, caption);
+      card.appendChild(video);
       videoGrid.appendChild(card);
     });
 
@@ -611,16 +386,12 @@
 
       const img = document.createElement("img");
       img.src = assetUrl(file);
-      img.alt = `${memorial.name}의 추억 사진 ${index + 1}`;
+      img.alt = `${memorial.name} 사진 ${index + 1}`;
       img.loading = "lazy";
       img.decoding = "async";
       img.onerror = () => card.remove();
 
-      const caption = document.createElement("div");
-      caption.className = "caption";
-      caption.innerHTML = `<strong>${createCaption(index, "photo")}</strong><span>${file}</span>`;
-
-      const open = () => openLightbox("image", assetUrl(file), `${memorial.name}의 추억 사진 ${index + 1}`);
+      const open = () => openLightbox(assetUrl(file), `${memorial.name} 사진 ${index + 1}`);
       card.addEventListener("click", open);
       card.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
@@ -629,29 +400,17 @@
         }
       });
 
-      card.append(img, caption);
+      card.appendChild(img);
       gallery.appendChild(card);
     });
 
-    function openLightbox(type, src, alt = "") {
+    function openLightbox(src, alt = "") {
       lightboxContent.innerHTML = "";
-
-      if (type === "image") {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = alt;
-        img.className = "lightbox-media";
-        lightboxContent.appendChild(img);
-      } else if (type === "video") {
-        const video = document.createElement("video");
-        video.src = src;
-        video.className = "lightbox-media";
-        video.controls = true;
-        video.autoplay = true;
-        video.playsInline = true;
-        lightboxContent.appendChild(video);
-      }
-
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = alt;
+      img.className = "lightbox-media";
+      lightboxContent.appendChild(img);
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
