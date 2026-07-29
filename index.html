@@ -2,434 +2,230 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>아롱이</title>
-  <style>
-    :root {
-      --bg: #f6f4ef;
-      --surface: #ffffff;
-      --surface-2: #f1eee8;
-      --line: #e5e0d7;
-      --text: #23211d;
-      --muted: #6f6a61;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --max: 1160px;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>아롱이 — 강아지별에서 기다리구 있을게!</title>
+  <meta name="description" content="달나라로 간 아롱이와 함께한 날들. 사진 26장과 영상으로 남긴 작은 추모 공간." />
+  <meta name="theme-color" content="#ffd9b0" />
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.65;
-    }
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="아롱이 — 강아지별에서 기다리구 있을게!" />
+  <meta property="og:description" content="달나라로 간 아롱이와 함께한 날들." />
+  <meta property="og:image" content="assets/img/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    img, video {
-      display: block;
-      max-width: 100%;
-    }
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/img/favicon-180.png" />
 
-    .container {
-      width: min(calc(100% - 40px), var(--max));
-      margin: 0 auto;
-    }
+  <link rel="preload" as="image" href="media/photos/w480/arong-20.webp" />
 
-    .hero {
-      padding: 72px 0 36px;
-    }
+  <!-- 손글씨 느낌의 제목용 서체. 로드에 실패해도 시스템 서체로 자연스럽게 대체됩니다. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap" />
 
-    .hero-inner {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      padding: 56px 32px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(34px, 5vw, 56px);
-      letter-spacing: -0.03em;
-      font-weight: 700;
-    }
-
-    .hero-subtitle {
-      margin: 14px auto 0;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .hero-actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 120px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      transition: background .2s ease, transform .2s ease;
-    }
-
-    .btn:hover {
-      background: var(--surface-2);
-      transform: translateY(-1px);
-    }
-
-    main {
-      padding-bottom: 56px;
-    }
-
-    section {
-      margin-top: 20px;
-    }
-
-    .section-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .section-head {
-      margin-bottom: 20px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: 26px;
-      letter-spacing: -0.02em;
-      font-weight: 700;
-    }
-
-    .section-head p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .video-card,
-    .photo-card {
-      overflow: hidden;
-      border-radius: var(--radius-md);
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-    }
-
-    .video-card video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      background: #ddd7ce;
-    }
-
-    .gallery {
-      columns: 4 220px;
-      column-gap: 16px;
-    }
-
-    .gallery .photo-card {
-      margin: 0 0 16px;
-      break-inside: avoid;
-      cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-
-    .gallery .photo-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-    }
-
-    .gallery .photo-card img {
-      width: 100%;
-      height: auto;
-    }
-
-    footer {
-      padding: 10px 0 36px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(26, 24, 20, 0.88);
-      z-index: 50;
-    }
-
-    .lightbox.open {
-      display: flex;
-    }
-
-    .lightbox-inner {
-      position: relative;
-      width: min(96vw, 1200px);
-      max-height: 92vh;
-      background: #111;
-      border-radius: 24px;
-      overflow: hidden;
-    }
-
-    .lightbox-media {
-      width: 100%;
-      max-height: 92vh;
-      object-fit: contain;
-      background: #111;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 40px;
-      height: 40px;
-      border: 0;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.16);
-      color: #fff;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        width: min(calc(100% - 24px), var(--max));
-      }
-
-      .hero {
-        padding-top: 32px;
-      }
-
-      .hero-inner,
-      .section-card {
-        padding: 22px;
-        border-radius: 24px;
-      }
-
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery {
-        columns: 2 180px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .gallery {
-        columns: 1;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <h1 id="heroTitle">아롱이</h1>
-        <p class="hero-subtitle" id="heroSubtitle">달나라로 간 아롱이와의 추억!!!</p>
-        <div class="hero-actions">
-          <a class="btn" href="#videoSection">영상</a>
-          <a class="btn" href="#gallerySection">사진</a>
+  <a class="skip-link" href="#gallerySection">본문 바로가기</a>
+
+  <!-- ── 강아지별 ─────────────────────────────────────────── -->
+  <header class="hero" id="top">
+    <div class="sky" aria-hidden="true">
+      <span class="sun"></span>
+      <span class="cloud cloud--1"></span>
+      <span class="cloud cloud--2"></span>
+      <span class="cloud cloud--3"></span>
+      <span class="cloud cloud--4"></span>
+      <span class="twinkle twinkle--1"></span>
+      <span class="twinkle twinkle--2"></span>
+      <span class="twinkle twinkle--3"></span>
+      <span class="twinkle twinkle--4"></span>
+      <span class="twinkle twinkle--5"></span>
+    </div>
+
+    <div class="hero-copy container">
+      <p class="hero-eyebrow">강아지별에서 온 소식</p>
+      <h1 class="hero-title">아롱이</h1>
+      <p class="hero-sub">여기는 햇살이 참 좋아.<br />다들 잘 지내고 있지?</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="#gallerySection">추억 보러 가기</a>
+        <a class="btn" href="#letterSection">아롱이 편지</a>
+      </div>
+    </div>
+
+    <!-- 언덕 위를 뛰어다니는 아롱이 -->
+    <div class="meadow" aria-label="강아지별에서 뛰어노는 아롱이" role="img">
+      <svg class="hills" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+        <path class="hill hill--back" d="M0 96c150-46 274 22 430 6s258-70 420-44 268 74 400 60 190-30 190-30v132H0z" />
+        <path class="hill hill--mid"  d="M0 132c180-38 292 26 470 12s282-56 462-30 328 62 508 44v62H0z" />
+        <path class="hill hill--front" d="M0 168c220-30 330 20 560 10s360-40 560-18 320 34 320 34v26H0z" />
+      </svg>
+
+      <span class="butterfly butterfly--1" aria-hidden="true"></span>
+      <span class="butterfly butterfly--2" aria-hidden="true"></span>
+
+      <div class="runner">
+        <div class="runner-hop">
+          <div class="speech" aria-hidden="true">기다리구 있을게!</div>
+          <!-- 아롱이 (비숑 프리제) -->
+          <svg class="arong" viewBox="0 0 252 200" aria-hidden="true">
+            <ellipse class="arong-shadow" cx="132" cy="184" rx="66" ry="9" />
+
+            <g class="arong-figure">
+              <g class="arong-tail">
+                <circle cx="58" cy="86" r="15" class="fur" />
+                <circle cx="48" cy="68" r="12" class="fur" />
+                <circle cx="42" cy="54" r="9"  class="fur" />
+              </g>
+
+              <g class="arong-legs">
+                <rect class="fur leg leg--bl" x="72"  y="128" width="22" height="50" rx="11" />
+                <rect class="fur leg leg--br" x="102" y="130" width="22" height="48" rx="11" />
+                <rect class="fur leg leg--fl" x="142" y="128" width="22" height="50" rx="11" />
+                <rect class="fur leg leg--fr" x="168" y="130" width="22" height="48" rx="11" />
+              </g>
+
+              <g class="arong-body">
+                <ellipse cx="120" cy="108" rx="58" ry="38" class="fur" />
+                <circle cx="74"  cy="104" r="22" class="fur" />
+                <circle cx="100" cy="84"  r="24" class="fur" />
+                <circle cx="136" cy="84"  r="24" class="fur" />
+                <circle cx="166" cy="102" r="22" class="fur" />
+                <circle cx="86"  cy="130" r="20" class="fur" />
+                <circle cx="122" cy="134" r="20" class="fur" />
+                <circle cx="156" cy="128" r="20" class="fur" />
+              </g>
+
+              <g class="arong-head">
+                <g class="arong-ear arong-ear--l">
+                  <circle cx="146" cy="96"  r="22" class="fur" />
+                  <circle cx="142" cy="116" r="16" class="fur" />
+                </g>
+                <g class="arong-ear arong-ear--r">
+                  <circle cx="228" cy="96"  r="21" class="fur" />
+                  <circle cx="232" cy="114" r="15" class="fur" />
+                </g>
+
+                <circle cx="186" cy="66" r="42" class="fur" />
+                <circle cx="164" cy="38" r="22" class="fur" />
+                <circle cx="208" cy="38" r="22" class="fur" />
+                <circle cx="186" cy="28" r="22" class="fur" />
+                <circle cx="150" cy="60" r="20" class="fur" />
+                <circle cx="222" cy="60" r="20" class="fur" />
+
+                <g class="arong-face">
+                  <ellipse class="eye" cx="172" cy="64" rx="6.4" ry="7.6" />
+                  <ellipse class="eye" cx="202" cy="64" rx="6.4" ry="7.6" />
+                  <circle class="glint" cx="174.4" cy="61" r="2.1" />
+                  <circle class="glint" cx="204.4" cy="61" r="2.1" />
+                  <ellipse class="nose" cx="187" cy="84" rx="7.6" ry="6" />
+                  <path class="mouth" d="M187 90c0 5-5 8-9 5M187 90c0 5 5 8 9 5" />
+                  <path class="tongue" d="M183 95c0-3 8-3 8 0v6a4 4 0 0 1-8 0z" />
+                  <ellipse class="blush" cx="156" cy="82" rx="9" ry="6" />
+                  <ellipse class="blush" cx="218" cy="82" rx="9" ry="6" />
+                </g>
+              </g>
+            </g>
+          </svg>
         </div>
       </div>
+
+      <div class="grass" aria-hidden="true"></div>
     </div>
   </header>
 
-  <main class="container">
-    <section id="videoSection">
-      <div class="section-card">
-        <div class="section-head">
-          <h2>영상</h2>
+  <main>
+    <!-- ── 함께한 날들 ───────────────────────────────────── -->
+    <section class="section section--tight" id="statsSection">
+      <div class="container">
+        <ul class="stats" id="stats"></ul>
+      </div>
+    </section>
+
+    <!-- ── 아롱이 편지 ───────────────────────────────────── -->
+    <section class="section" id="letterSection">
+      <div class="container">
+        <article class="letter reveal">
+          <span class="letter-tape" aria-hidden="true"></span>
+          <h2 class="letter-title">아롱이가 보내온 편지</h2>
+          <div class="letter-body">
+            <p>나 여기 잘 도착했어. 강아지별은 아프지가 않아.</p>
+            <p>여긴 언덕이 아주 넓어서 하루 종일 뛰어도 다리가 안 아파.
+              햇볕 좋은 자리에 누워 있으면 우리 집 거실 냄새가 나는 것 같아.</p>
+            <p>가끔 네가 우는 게 여기까지 들려. 그럴 땐 나도 창문 앞에 앉아 있어.
+              울지 말라고는 못 하겠고… 그냥, 많이 울고 나면 밥은 꼭 챙겨 먹어.</p>
+            <p>나는 하나도 안 무서웠어. 마지막까지 네 손 냄새가 났거든.</p>
+            <p>천천히 와. 아주 천천히, 할 거 다 하고 와.<br />여기서 <b>기다리구 있을게!</b></p>
+          </div>
+          <p class="letter-sign">— 아롱이가</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── 사진 ─────────────────────────────────────────── -->
+    <section class="section" id="gallerySection">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>함께 찍은 사진</h2>
+          <p>사진을 누르면 크게 볼 수 있어요.</p>
+        </div>
+        <div class="chips" id="yearChips" role="tablist" aria-label="연도별 보기"></div>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </section>
+
+    <!-- ── 영상 ─────────────────────────────────────────── -->
+    <section class="section" id="videoSection">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>움직이는 아롱이</h2>
+          <p>재생 버튼을 누르면 그때 소리까지 들려요.</p>
         </div>
         <div class="video-grid" id="videoGrid"></div>
       </div>
     </section>
 
-    <section id="gallerySection">
-      <div class="section-card">
-        <div class="section-head">
-          <h2>사진</h2>
+    <!-- ── 발자국 남기기 ─────────────────────────────────── -->
+    <section class="section" id="pawSection">
+      <div class="container">
+        <div class="paw-card reveal">
+          <h2>여기 발자국 하나 남기고 가</h2>
+          <p class="paw-desc">보고 싶은 마음만큼 눌러도 괜찮아요. 이 기기에만 조용히 쌓입니다.</p>
+          <button class="paw-btn" id="pawBtn" type="button">
+            <span class="paw-btn-icon" aria-hidden="true">🐾</span>
+            <span>발자국 남기기</span>
+          </button>
+          <p class="paw-count" id="pawCount" role="status"></p>
+          <div class="paw-field" id="pawField" aria-hidden="true"></div>
         </div>
-        <div class="gallery" id="gallery"></div>
       </div>
     </section>
   </main>
 
-  <footer>
-    아롱이 사진 기록
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-line">아롱이 · 우리 곁에 있어 줘서 고마웠어</p>
+      <p class="footer-sub">언제든 다시 보러 와요. 여긴 늘 열려 있어요.</p>
+      <a class="footer-top" href="#top">↑ 강아지별로 돌아가기</a>
+    </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox-inner">
-      <button class="close-btn" id="closeLightbox" aria-label="닫기">×</button>
-      <div id="lightboxContent"></div>
-    </div>
+  <!-- ── 라이트박스 ───────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기" hidden>
+    <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="닫기">×</button>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="이전 사진">‹</button>
+    <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="다음 사진">›</button>
+    <figure class="lb-figure">
+      <img class="lb-img" id="lbImg" alt="" />
+      <figcaption class="lb-cap">
+        <span class="lb-date" id="lbDate"></span>
+        <span class="lb-text" id="lbText"></span>
+        <a class="lb-orig" id="lbOrig" href="#" target="_blank" rel="noopener">원본 열기 ↗</a>
+      </figcaption>
+    </figure>
   </div>
 
-  <script>
-    const memorial = {
-      name: "아롱이",
-      assetBasePath: "./",
-      title: "아롱이",
-      subtitle: "달나라로 간 아롱이와의 추억"
-    };
-
-    const videos = [
-      "KakaoTalk_20260317_191720432.mp4",
-      "KakaoTalk_20260317_191727111.mp4"
-    ];
-
-    const photos = [
-      "KakaoTalk_20260317_191722475.jpg",
-      "KakaoTalk_20260317_191722475_01.jpg",
-      "KakaoTalk_20260317_191722475_02.jpg",
-      "KakaoTalk_20260317_191722475_03.jpg",
-      "KakaoTalk_20260317_191722475_04.jpg",
-      "KakaoTalk_20260317_191722475_05.jpg",
-      "KakaoTalk_20260317_191722475_06.jpg",
-      "KakaoTalk_20260317_191722475_07.jpg",
-      "KakaoTalk_20260317_191722475_08.jpg",
-      "KakaoTalk_20260317_191722475_09.jpg",
-      "KakaoTalk_20260317_191722475_10.jpg",
-      "KakaoTalk_20260317_191722475_11.jpg",
-      "KakaoTalk_20260317_191722475_12.jpg",
-      "KakaoTalk_20260317_191722475_13.jpg",
-      "KakaoTalk_20260317_191722475_14.jpg",
-      "KakaoTalk_20260317_191722475_15.jpg",
-      "KakaoTalk_20260317_191722475_16.jpg",
-      "KakaoTalk_20260317_191722475_17.jpg",
-      "KakaoTalk_20260317_191722475_18.jpg",
-      "KakaoTalk_20260317_191722475_19.jpg",
-      "KakaoTalk_20260317_191722475_20.jpg",
-      "KakaoTalk_20260317_191722475_21.jpg",
-      "KakaoTalk_20260317_191722475_22.jpg",
-      "KakaoTalk_20260317_191722475_23.jpg",
-      "KakaoTalk_20260317_191722475_24.jpg",
-      "KakaoTalk_20260317_191722475_25.jpg"
-    ];
-
-    const titleEl = document.getElementById("heroTitle");
-    const subtitleEl = document.getElementById("heroSubtitle");
-    const videoGrid = document.getElementById("videoGrid");
-    const gallery = document.getElementById("gallery");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxContent = document.getElementById("lightboxContent");
-    const closeLightbox = document.getElementById("closeLightbox");
-
-    titleEl.textContent = memorial.title;
-    subtitleEl.textContent = memorial.subtitle;
-
-    function assetUrl(fileName) {
-      return encodeURI(`${memorial.assetBasePath}${fileName}`);
-    }
-
-    videos.forEach((file) => {
-      const card = document.createElement("article");
-      card.className = "video-card";
-
-      const video = document.createElement("video");
-      video.src = assetUrl(file);
-      video.controls = true;
-      video.preload = "metadata";
-      video.playsInline = true;
-      video.onerror = () => card.remove();
-
-      card.appendChild(video);
-      videoGrid.appendChild(card);
-    });
-
-    photos.forEach((file, index) => {
-      const card = document.createElement("article");
-      card.className = "photo-card";
-      card.tabIndex = 0;
-      card.setAttribute("role", "button");
-      card.setAttribute("aria-label", `${memorial.name} 사진 ${index + 1} 크게 보기`);
-
-      const img = document.createElement("img");
-      img.src = assetUrl(file);
-      img.alt = `${memorial.name} 사진 ${index + 1}`;
-      img.loading = "lazy";
-      img.decoding = "async";
-      img.onerror = () => card.remove();
-
-      const open = () => openLightbox(assetUrl(file), `${memorial.name} 사진 ${index + 1}`);
-      card.addEventListener("click", open);
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          open();
-        }
-      });
-
-      card.appendChild(img);
-      gallery.appendChild(card);
-    });
-
-    function openLightbox(src, alt = "") {
-      lightboxContent.innerHTML = "";
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = alt;
-      img.className = "lightbox-media";
-      lightboxContent.appendChild(img);
-      lightbox.classList.add("open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeBox() {
-      lightbox.classList.remove("open");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxContent.innerHTML = "";
-      document.body.style.overflow = "";
-    }
-
-    closeLightbox.addEventListener("click", closeBox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeBox();
-    });
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeBox();
-    });
-  </script>
+  <script src="assets/js/photos.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>

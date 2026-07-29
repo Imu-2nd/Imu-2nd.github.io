@@ -1,0 +1,31 @@
+{
+  "_주석": "사진마다 붙는 날짜와 한 줄 설명입니다. 자유롭게 고쳐 쓴 뒤 `npm run build:media` 를 다시 실행하면 사이트에 반영됩니다. date 는 'YYYY-MM-DD' 또는 null.",
+
+  "arong-01.jpg": { "date": null, "caption": "넓은 잔디밭 한가운데, 작고 하얀 점 하나" },
+  "arong-02.jpg": { "date": null, "caption": "새 옷 입고 신나서 혀를 쏙" },
+  "arong-03.jpg": { "date": null, "caption": "할 말이 아주 많은 얼굴" },
+  "arong-04.jpg": { "date": null, "caption": "이불 위에서 포개어 잠든 둘" },
+  "arong-05.jpg": { "date": null, "caption": "목욕 끝! 나란히 고개 내밀고" },
+  "arong-06.jpg": { "date": null, "caption": "누가 먼저 나갈래?" },
+  "arong-07.jpg": { "date": null, "caption": "발 맞춰 걷던 산책길" },
+  "arong-08.jpg": { "date": null, "caption": "이불 속에 숨었다고 생각한 아롱이" },
+  "arong-09.jpg": { "date": null, "caption": "얼굴만 빼꼼" },
+  "arong-10.jpg": { "date": null, "caption": "담요째로 안겨 있던 낮잠" },
+
+  "arong-11.jpg": { "date": "2017-02-11", "caption": "대자로 뻗어버린 겨울 오후" },
+  "arong-12.jpg": { "date": "2017-07-02", "caption": "시원한 바닥이 제일 좋아" },
+  "arong-13.jpg": { "date": "2019-05-20", "caption": "식탁 아래, 늘 앉던 그 자리" },
+  "arong-14.jpg": { "date": "2020-03-01", "caption": "거실을 순찰 도는 중" },
+  "arong-15.jpg": { "date": "2020-03-01", "caption": "부르면 이렇게 쳐다보던 눈" },
+  "arong-16.jpg": { "date": "2020-04-07", "caption": "창밖 구경이 하루 일과" },
+  "arong-17.jpg": { "date": "2020-11-24", "caption": "인형들 사이에 끼어 자던 밤" },
+  "arong-18.jpg": { "date": "2020-12-31", "caption": "한 해의 마지막 밤, 곤히" },
+  "arong-19.jpg": { "date": "2021-05-02", "caption": "책 냄새 나는 자리에서" },
+  "arong-20.jpg": { "date": "2021-05-03", "caption": "이 눈을 오래 기억할게" },
+  "arong-21.jpg": { "date": "2021-05-03", "caption": "조금만 더 자면 안 될까" },
+  "arong-22.jpg": { "date": "2021-05-13", "caption": "이불 밖은 위험해" },
+  "arong-23.jpg": { "date": "2021-05-16", "caption": "제일 포근한 자리 차지" },
+  "arong-24.jpg": { "date": "2021-10-17", "caption": "나란히 앉은 뒷모습" },
+  "arong-25.jpg": { "date": "2022-10-08", "caption": "숲으로 떠난 가을 나들이" },
+  "arong-26.jpg": { "date": "2024-09-17", "caption": "달려오던 그 걸음" }
+}

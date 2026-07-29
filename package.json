@@ -1,0 +1,14 @@
+{
+  "name": "arong-memorial",
+  "version": "2.0.0",
+  "private": true,
+  "description": "아롱이를 위한 추모 공간",
+  "type": "module",
+  "scripts": {
+    "build:media": "node tools/build-media.mjs",
+    "serve": "node tools/serve.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}
